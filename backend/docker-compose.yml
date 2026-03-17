@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aura
+      POSTGRES_PASSWORD: aura_secret
+      POSTGRES_DB: aura_skincare
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aura -d aura_skincare"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/__pycache__
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      sh -c "
+        alembic upgrade head &&
+        python -m app.seed &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      "
+
+volumes:
+  pgdata:

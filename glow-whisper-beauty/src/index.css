@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 25% 98%;
+    --foreground: 20 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 10% 15%;
+
+    --primary: 340 45% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 30 30% 93%;
+    --secondary-foreground: 20 10% 25%;
+
+    --muted: 30 20% 95%;
+    --muted-foreground: 20 8% 50%;
+
+    --accent: 270 30% 85%;
+    --accent-foreground: 270 30% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 90%;
+    --input: 30 20% 88%;
+    --ring: 340 45% 65%;
+
+    --radius: 1rem;
+
+    --rose: 340 45% 65%;
+    --rose-light: 340 50% 92%;
+    --blush: 15 40% 94%;
+    --cream: 40 30% 96%;
+    --lavender: 270 30% 90%;
+    --lavender-deep: 270 35% 75%;
+    --gold: 38 60% 55%;
+    --sage: 150 15% 75%;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --shadow-soft: 0 4px 20px -4px hsl(340 30% 50% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(340 30% 50% / 0.1);
+    --shadow-elevated: 0 16px 50px -12px hsl(340 30% 50% / 0.15);
+    --shadow-glow: 0 0 30px hsl(340 45% 65% / 0.15);
+
+    --gradient-rose: linear-gradient(135deg, hsl(340 50% 92%), hsl(15 40% 94%));
+    --gradient-lavender: linear-gradient(135deg, hsl(270 30% 92%), hsl(340 50% 92%));
+    --gradient-warm: linear-gradient(135deg, hsl(30 30% 96%), hsl(15 40% 94%));
+    --gradient-hero: linear-gradient(135deg, hsl(340 50% 95%), hsl(270 30% 93%), hsl(30 30% 96%));
+    --gradient-cta: linear-gradient(135deg, hsl(340 45% 65%), hsl(340 50% 55%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .gradient-rose {
+    background: var(--gradient-rose);
+  }
+
+  .gradient-lavender {
+    background: var(--gradient-lavender);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-cta {
+    background: var(--gradient-cta);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

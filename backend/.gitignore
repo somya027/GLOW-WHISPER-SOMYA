@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+uploads/products/*.jpg
+uploads/products/*.png
+!uploads/products/.gitkeep
+alembic/versions/__pycache__/
+.mypy_cache/
+.pytest_cache/
